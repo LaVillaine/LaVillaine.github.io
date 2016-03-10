@@ -1,5 +1,5 @@
 github: [metadata]
-kramdown:
+markdown: kramdown
 input: GFM
 hard_wrap: false
 gems:
