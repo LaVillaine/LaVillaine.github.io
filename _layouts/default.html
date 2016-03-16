@@ -53,11 +53,17 @@
 						    {% if page.siteHeading %}
 								{{page.siteHeading}}
 							{% else %}
-								Not Mohmanyang
+								No Site Heading Provided
 							{% endif %}
 						</h1>
                         <hr class="small">
-                        <span class="subheading">A Clean Blog Theme by Start Bootstrap</span>
+                        <span class="subheading">
+							{% if page.subHeading %}
+								{{page.subHeading}}
+							{% else %}
+								No Subheading Provided
+							{% endif %}
+						</span>
                     </div>
                 </div>
             </div>
