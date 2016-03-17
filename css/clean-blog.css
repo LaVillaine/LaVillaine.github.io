@@ -414,14 +414,14 @@ body {
 		left: 40%;
 	}
 	
-	.row-offcanvas-right
+	/*.row-offcanvas-right
 	#sidebarRight{
 		right: -40%;
 	}
 	
 	.row-offcanvas-right.active{
 		right: 40%;
-	}
+	}*/
 	
 	.sidebar-offcanvas{
 		position: absolute;
