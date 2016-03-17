@@ -428,16 +428,16 @@ body {
 	
 	.row-offcanvas-left
 	#sidebarLeft{
-			left: -50%;
+			left: -60%;
 		}
 		
 	.row-offcanvas-left.active{
-		left: 50%;
+		left: 60%;
 	}	
 	.sidebar-offcanvas{
 		position: absolute;
 		top: 0;
-		width: 50%;
+		width: 60%;
 		margin-left: 10px;
 	}
 }
