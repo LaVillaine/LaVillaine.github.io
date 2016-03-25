@@ -6,23 +6,37 @@ subHeading: "Welcome - Bhɨkӑ Ntwoh"
 image: "img/home-bg.jpg"
 ---
 
+{% for post in site.posts %}
+
 					<div class="post-preview">
-						<a href="post.html">
+						<a href="{{ post.url }}">
 							<h2 class="post-title">
-								Man must explore, and this is exploration at its greatest
+								{{ post.postHeading }}
 							</h2>
 							<h3 class="post-subtitle">
-								Problems look mighty small from 150 miles up
+								{{ post.subHeading }}
 							</h3>
 						</a>
-						<p class="paragraph post-meta">Posted by <a href="#">Start Bootstrap</a> on September 24, 2014</p>
+						<p class="paragraph post-meta">
+							<i class="icon-calendar"></i>Posted on: {{post.date | date_to_string}}
+							|<i class="icon-tags"></i> 
+								Tags: {% for tag in post.tags%} 
+								<a href="" title="View posts tagged with &quot;{{ tag }}&quot;">
+									<span class="label label-info">{{ tag }}</span>
+								</a>
+								{% if forloop.last != true %} {% endif %} {% endfor %}
+						</p>
 					</div>
 					<hr>
-					<div class="post-preview">
+{% endfor %}
+					<!--div class="post-preview">
 						<a href="post.html">
 							<h2 class="post-title">
-								I believe every human has a finite number of heartbeats. I don't intend to waste any of mine.
+								I believe every human has a finite number of heartbeats. 
 							</h2>
+							<h3 class="post-subtitle">
+								I don't intend to waste any of mine.
+							</h3>
 						</a>
 						<p class="paragraph post-meta">Posted by <a href="#">Start Bootstrap</a> on September 18, 2014</p>
 					</div>
@@ -50,7 +64,7 @@ image: "img/home-bg.jpg"
 						</a>
 						<p class="paragraph post-meta">Posted by <a href="#">Start Bootstrap</a> on July 8, 2014</p>
 					</div>
-					<hr>
+					<hr-->
 					<!-- Pager -->
 					<ul class="pager">
 						<li class="next">
