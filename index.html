@@ -6,28 +6,27 @@ subHeading: "Welcome - Bhɨkӑ Ntwoh"
 image: "img/home-bg.jpg"
 ---
 
-{% for post in paginator.posts %}<!--site.posts offset: 1 limit: 3-->
-
-					<div class="post-preview">
-						<a href="{{ post.url }}">
-							<h2 class="post-title">
-								{{ post.postHeading }}
-							</h2>
-							<h3 class="post-subtitle">
-								{{ post.subHeading }}
-							</h3>
-						</a>
-						<p class="paragraph post-meta">
-							<i class="icon-calendar"></i>Posted on: {{post.date | date_to_string}}
-							|<i class="icon-tags"></i> 
-								Tags: {% for tag in post.tags%} 
-								<a href="" title="View posts tagged with &quot;{{ tag }}&quot;">
-									<span class="label label-info">{{ tag }}</span>
-								</a>
-								{% if forloop.last != true %} {% endif %} {% endfor %}
-						</p>
-					</div>
-					<hr>
+{% for post in paginator.posts %}
+	<div class="post-preview">
+		<a href="{{ post.url }}">
+			<h2 class="post-title">
+				{{ post.postHeading }}
+			</h2>
+			<h3 class="post-subtitle">
+				{{ post.subHeading }}
+			</h3>
+		</a>
+		<p class="paragraph post-meta">
+			<i class="icon-calendar"></i>Posted on: {{post.date | date_to_string}}
+			|<i class="icon-tags"></i> 
+				Tags: {% for tag in post.tags%} 
+				<a href="" title="View posts tagged with &quot;{{ tag }}&quot;">
+					<span class="label label-info">{{ tag }}</span>
+				</a>
+				{% if forloop.last != true %} {% endif %} {% endfor %}
+		</p>
+	</div>
+	<hr>
 {% endfor %}
 
 <!-- Pager -->

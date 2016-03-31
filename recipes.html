@@ -1,0 +1,26 @@
+---
+layout: default
+title: "Recipes"
+siteHeading: "Recipes"
+subHeading: "From my kitchen to yours - with love"
+image: "img/home-bg.jpg"
+---
+
+{% for post in site.posts limit: 2 %}
+	<!--{% if post.tags contains 'science' %}-->
+		<h1><a href="{{ post.url }}">{{ post.postHeading }}</a></h1>
+		  <p class="author">
+			<span class="date">Posted on: {{post.date | date_to_string}}</span>
+		  </p>
+		  <div class="content">
+			{{ post.content }}
+		  </div>
+	<!--{% endif %}-->
+{% endfor %}
+
+<div class="infinite-spinner"></div>
+
+<!-- Pager >
+<ul class="pager next">
+	<input id="morebtn" type="button" value="more button" />
+</ul-->
