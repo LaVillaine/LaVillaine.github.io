@@ -66,18 +66,13 @@ $(function(){
 	
 	function fetchPostWithIndex(index, callback) {
 		var postURL = postURLs[index];
-		/*var getUrlData = function(data) {
+		var getUrlData = function(data) {
 					var postHeading = $(data).find(".post-heading");
+					console.log(postHeading);
 					postHeading.appendTo(".post-list");
 					callback();
-				};*/
+				};
 		$.get(postURL, getUrlData);
-	}
-	
-	function getUrlData(data){
-		var postHeading = $(data).find(".post-heading");
-		postHeading.appendTo(".post-list");
-		callback();
 	}
 	
 	function disableFetching() {
