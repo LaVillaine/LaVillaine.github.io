@@ -70,7 +70,7 @@ $(function(){
 					var postHeading = $(data).find(".post-heading");
 					postHeading.appendTo(".post-list");
 					callback();
-				}
+				};
 		$.get(postURL, getUrlData);
 	}
 	
