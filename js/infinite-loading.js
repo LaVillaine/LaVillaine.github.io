@@ -7,7 +7,9 @@ $(function(){
 	
 	// Load the JSON file containing all URLs
 	var getJsonRes = function(data){
+					console.log(data);
 					postURLs = data["posts"];
+					console.log(postURLs);
 					// If there aren't any more posts available to load 
 					//than already visible, disable fetching
 					if (postURLs.length <= postsToLoad)
