@@ -4,8 +4,8 @@
   "posts" : 
   {
   	{% for post in site.posts %}
-	"url": ["{{ post.url }}"{% unless forloop.last %},{% endunless %}]
-	
+	"url": ["{{ post.url }}"]
+	{% unless forloop.last %},{% endunless %}
 	{% endfor %}
   
   }
