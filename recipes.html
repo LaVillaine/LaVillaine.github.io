@@ -5,7 +5,7 @@ siteHeading: "Recipes"
 subHeading: "From my kitchen to yours - with love"
 image: "img/home-bg.jpg"
 ---
-
+<div class="post-list">
 {% for post in site.posts limit: 2 %}
 	<!--{% if post.tags contains 'science' %}-->
 		<h1><a href="{{ post.url }}">{{ post.postHeading }}</a></h1>
@@ -17,6 +17,7 @@ image: "img/home-bg.jpg"
 		  </div>
 	<!--{% endif %}-->
 {% endfor %}
+</div>
 
 <div class="infinite-spinner"></div>
 
