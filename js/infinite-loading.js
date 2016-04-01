@@ -31,7 +31,12 @@ $(function(){
 					if ((documentHeight - loadNewPostsThreshold) < bottomScrollPosition) 
 						fetchPosts();
 				};
-	$(window).scroll(scrollAndLoad);
+	//$(window).scroll(scrollAndLoad);
+	
+	//get more button
+	$(function(){
+		$('#morebtn').click(function() {fetchPosts();});
+	});
 	
 	// Fetch a chunk of posts
 	function fetchPosts() {
