@@ -3,15 +3,15 @@
 {
   "posts" : 
   {
-	"url": [{% for post in site.posts %}
-		"{{ post.url }}" {% unless forloop.last %},{% endunless %}
+	"url": [{% for post in site.tags.science%}
+		"{{ post.url }}"{% unless forloop.last %},{% endunless %}
 	{% endfor %}],
 	
-	"heading":[{% for post in site.posts %}
+	"heading":[{% for post in site.tags.science %}
 		"{{ post.postHeading }}" {% unless forloop.last %},{% endunless %}
 	{% endfor %}],
 	
-	"date": [{% for post in site.posts %}
+	"date": [{% for post in site.tags.science %}
 		"{{post.date | date_to_string}}" {% unless forloop.last %},{% endunless %}
 	{% endfor %}]
   }

@@ -1,15 +1,14 @@
 $(function(){
 	var postURLs;
 	var isFetchingPosts = false;
-	var shouldFetchPosts = true;
-	var postsToLoad = $(".post-list").children().length/3;
-	var loadNewPostsThreshold = 3000;
+	var postsToLoad = $(".post-list").children().length/4;
 	
 	// Load the JSON file containing all URLs
 	var getJsonRes = function(data){
 					console.log(data);
-					postURLs = data["posts"];
-					console.log(postURLs);
+					postURLs = data["posts"]["url"];
+					postHeadings = data["posts"]["heading"];
+					postDates = data["posts"]["date"];
 					// If there aren't any more posts available to load 
 					//than already visible, disable fetching
 					if (postURLs.length <= postsToLoad)
@@ -17,27 +16,12 @@ $(function(){
 				};
 	$.getJSON('/all-posts.json', getJsonRes);
 	
-	// If there's no spinner, it's not a page where posts should be fetched
-	if ($(".infinite-spinner").length < 1)
-		shouldFetchPosts = false;
-	
-	// Are we close to the end of the page? If we are, load more posts
-	var scrollAndLoad = function(e){
-					if (!shouldFetchPosts || isFetchingPosts) return;
-					var windowHeight = $(window).height();
-        			var windowScrollPosition = $(window).scrollTop();
-        			var bottomScrollPosition = windowHeight + windowScrollPosition;
-        			var documentHeight = $(document).height();
-					// If we've scrolled past the loadNewPostsThreshold, 
-					//fetch posts
-					if ((documentHeight - loadNewPostsThreshold) < bottomScrollPosition) 
-						fetchPosts();
-				};
-	//$(window).scroll(scrollAndLoad);
-	
 	//get more button
 	$(function(){
-		$('#morebtn').click(function() {fetchPosts();});
+		$('#morebtn').click(function() {
+			if (isFetchingPosts) return;
+			fetchPosts();
+		});
 	});
 	
 	// Fetch a chunk of posts
@@ -49,7 +33,7 @@ $(function(){
 		// Load as many posts as there were present on the page when it loaded
 		// After successfully loading a post, load the next one
 		var loadedPosts = 0;
-		var postCount = $(".post-list").children().length/3;
+		var postCount = $(".post-list").children().length/4;
 		var callback = function() {
 					loadedPosts++;
 					var postIndex = postCount + loadedPosts;
@@ -68,18 +52,20 @@ $(function(){
 	
 	function fetchPostWithIndex(index, callback) {
 		var postURL = postURLs[index];
+		var firstChild = '<h1><a href="' + postURL + '">' + postHeadings[index] + '</a></h1>'
+		var secondChild = '<p class="author"><span class="date">Posted on: ' + postDates[index] + '</span></p>'
 		var getUrlData = function(data) {
-					var postHeading = $(data).find(".post-heading");
-					console.log(postHeading);
-					postHeading.appendTo(".post-list");
+					$(firstChild).appendTo(".post-list");
+					$(secondChild).appendTo(".post-list");
+					$(data).find("#post-body").appendTo(".post-list");
+					$("<hr>").appendTo(".post-list");
 					callback();
 				};
 		$.get(postURL, getUrlData);
 	}
 	
 	function disableFetching() {
-		shouldFetchPosts = false;
 		isFetchingPosts = false;
-		$(".infinite-spinner").fadeOut();
+		$(".pager").remove();
 	}
 });
