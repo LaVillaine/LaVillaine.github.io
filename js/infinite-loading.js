@@ -5,10 +5,17 @@ $(function(){
 	
 	// Load the JSON file containing all URLs
 	var getJsonRes = function(data){
-					console.log(data);
-					postURLs = data["posts"]["url"];
-					postHeadings = data["posts"]["heading"];
-					postDates = data["posts"]["date"];
+					if(document.title == "Recipes"){
+						postURLs = data["food"]["url"];
+						postHeadings = data["food"]["heading"];
+						postDates = data["food"]["date"];
+					}
+					
+					if(document.title == "Creative Writing"){
+						postURLs = data["prose"]["url"];
+						postHeadings = data["prose"]["heading"];
+						postDates = data["prose"]["date"];
+					}
 					// If there aren't any more posts available to load 
 					//than already visible, disable fetching
 					if (postURLs.length <= postsToLoad)
@@ -18,9 +25,19 @@ $(function(){
 	
 	//get more button
 	$(function(){
-		$('#morebtn').click(function() {
+		$('#morePostsBtn').click(function() {
 			if (isFetchingPosts) return;
 			fetchPosts();
+			return false;
+		});
+	});
+	
+	//get more button
+	$(function(){
+		$('#moreProseBtn').click(function() {
+			if (isFetchingPosts) return;
+			fetchPosts();
+			return false;
 		});
 	});
 	
@@ -52,7 +69,7 @@ $(function(){
 	
 	function fetchPostWithIndex(index, callback) {
 		var postURL = postURLs[index];
-		var firstChild = '<h1><a href="' + postURL + '">' + postHeadings[index] + '</a></h1>'
+		var firstChild = '<h1><a href="' + postURL + '" title="View entire post">' + postHeadings[index] + '</a></h1>'
 		var secondChild = '<p class="author"><span class="date">Posted on: ' + postDates[index] + '</span></p>'
 		var getUrlData = function(data) {
 					$(firstChild).appendTo(".post-list");

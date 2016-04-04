@@ -1,17 +1,32 @@
 ---
 ---
 {
-  "posts" : 
+  "food": 
   {
-	"url": [{% for post in site.tags.science%}
+	"url": [{% for post in site.tags.food%}
 		"{{ post.url }}"{% unless forloop.last %},{% endunless %}
 	{% endfor %}],
 	
-	"heading":[{% for post in site.tags.science %}
+	"heading":[{% for post in site.tags.food %}
 		"{{ post.postHeading }}" {% unless forloop.last %},{% endunless %}
 	{% endfor %}],
 	
-	"date": [{% for post in site.tags.science %}
+	"date": [{% for post in site.tags.food %}
+		"{{post.date | date_to_string}}" {% unless forloop.last %},{% endunless %}
+	{% endfor %}]
+  },
+  
+  "prose" : 
+  {
+	"url": [{% for post in site.tags.prose%}
+		"{{ post.url }}"{% unless forloop.last %},{% endunless %}
+	{% endfor %}],
+	
+	"heading":[{% for post in site.tags.prose %}
+		"{{ post.postHeading }}" {% unless forloop.last %},{% endunless %}
+	{% endfor %}],
+	
+	"date": [{% for post in site.tags.prose %}
 		"{{post.date | date_to_string}}" {% unless forloop.last %},{% endunless %}
 	{% endfor %}]
   }

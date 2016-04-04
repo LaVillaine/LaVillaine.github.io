@@ -41,7 +41,6 @@
 							</button>
 						</p>
 					</div>
-					<div id="post-body">
 						<h1 style="font-size:50px">
 							{% if page.postHeading %}
 								{{page.postHeading}}
@@ -61,6 +60,7 @@
 								<i class="icon-calendar"></i>Posted on: {{page.date | date_to_string}}
 							</p>
 						</div>
+					<div id="post-body">
 						{{content}}
 					</div>
 				</div>
