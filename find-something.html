@@ -1,0 +1,68 @@
+---
+title: "Find Something"
+siteHeading: "Find Something"
+subHeading: "Hope you find what you're looking for."
+image: "img/about-bg.jpg"
+---
+
+<!DOCTYPE html>
+<html lang="en">
+
+{%include head.html%}
+
+<body>
+
+    {%include nav.html%}
+	{%include site-header.html%}
+	
+	<!-- Main Content -->
+    <div class="container container-smooth-sm"  style="padding: 0px">
+        <div class="row">
+			<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <form class="form-search" action="/search" method="get" style="padding: 3px">
+					<div class="input-group">
+						<input type="search" class="form-control" placeholder="Search" name="q" value="{{ search.terms | escape }}">
+						<div class="input-group-btn">
+							<button class="btn btn-default" type="button">
+								<i class="glyphicon glyphicon-search"></i>
+							</button>
+						</div>
+					</div>
+				</form>
+				<!--
+				http://rayhightower.com/blog/2016/01/04/how-to-make-lunrjs-jekyll-work-together/
+				http://dreamand.me/web/fulltext-search-at-jekyll-site/
+				-->
+
+				
+                    <!--form class="navbar-form" role="search">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Find something" name="srch-term" id="srch-term">
+                            <div class="input-group-btn">
+                                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                            </div>
+                        </div>
+                    </form-->
+				
+				</div>
+		</div>
+	</div>
+    <hr>
+
+	{%include footer.html%}
+	
+	<!-- jQuery -->
+    <script src="/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/js/bootstrap.min.js"></script>
+
+	<!--Toggle function-->
+	<script src="/js/toggle-columns.js"></script>
+	
+    <!-- Custom Theme JavaScript -->
+    <script src="/js/clean-blog.min.js"></script>
+
+</body>
+
+</html>
