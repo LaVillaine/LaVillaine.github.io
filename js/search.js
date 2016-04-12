@@ -50,7 +50,7 @@ $(function() {
           var item = loaded_data[result.ref];
 
           // Build a snippet of HTML for this result var appendString = '<li><a href="' + item.url + '">' + item.postHeading + '</a></li>';
-		  var postPreview = build_html(item.url, item.postHeading, item.subHeading, item.date, item.tags);
+		  var postPreview = build_html(item.url, item.postHeading, item.subHeading, item.date, item.tags.split(', '));
 
           // Add the snippet to the collection of results.
           $search_results.append(postPreview);
