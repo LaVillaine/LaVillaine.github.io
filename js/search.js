@@ -68,7 +68,7 @@ $(function() {
   }
   
   function build_html(url, heading, subHeading, date, tags){
-  // Create div
+    // Create div
     var postPreview = document.createElement("div");
 	postPreview.setAttribute('class', 'post-preview');
 	// Create anchor
@@ -95,7 +95,7 @@ $(function() {
 	var subAnchor = document.createElement("a");
 	if(tags[0] == 'food') subAnchor.setAttribute('href', '/recipes.html');
 	else  subAnchor.setAttribute('href', '/creative-writing.html');
-	subAnchor.setAttribute('title', 'View posts tagged with &quot;' + tags[0] + '&quot;');
+	subAnchor.setAttribute('title', 'View posts tagged with "' + tags[0] + '"');
 	var span = document.createElement("span");
 	span.setAttribute('class', 'label label-info');
 	span.innerHTML = tags[0];
