@@ -49,21 +49,67 @@ $(function() {
         results.forEach(function(result) {
           var item = loaded_data[result.ref];
 
-          // Build a snippet of HTML for this result
-          var appendString = '<li><a href="' + item.url + '">' + item.postHeading + '</a></li>';
+          // Build a snippet of HTML for this result var appendString = '<li><a href="' + item.url + '">' + item.postHeading + '</a></li>';
+		  var postPreview = build_html(item.url, item.postHeading, item.subHeading, item.date, item.tags);
 
           // Add the snippet to the collection of results.
-          $search_results.append(appendString);
+          $search_results.append(postPreview);
+		  $search_results.append(document.createElement("HR"));
 		  
 		  // Populate all_results
 		  all_results.push({url:item.url, postHeading:item.postHeading, date:item.date, tags:item.tags, subHeading:item.subHeading});
         });
       } else {
         // If there are no results, let the user know.
-        $search_results.html('<li>No results found.<br/>Please check spelling, spacing, yada...</li>');
+        $search_results.html('<li>No results found.<br/>Please check spelling, spacing, and so on...</li>');
       }
     });
 	return all_results;
+  }
+  
+  function build_html(url, heading, subHeading, date, tags){
+  // Create div
+    var postPreview = document.createElement("div");
+	postPreview.setAttribute('class', 'post-preview');
+	// Create anchor
+	var anchor = document.createElement("a");
+	anchor.setAttribute('href', url);
+	var title = document.createElement("h2");
+	title.setAttribute('class', 'post-title');
+	title.innerHTML = heading;
+	var subTitle = document.createElement("h3");
+	subTitle.setAttribute('class', 'post-subtitle');
+	subTitle.innerHTML = subHeading;
+	// Close anchor
+	anchor.appendChild(title);
+	anchor.appendChild(subTitle);
+	// Create paragraph
+	var paragraph = document.createElement('P');
+	paragraph.setAttribute('class', 'paragraph post-meta');
+	var calendar = document.createElement('i');
+	calendar.setAttribute('class', 'icon-calendar');
+	var node1 = document.createTextNode("Posted on: " + date + " |");
+	var tag = document.createElement('i');
+	tag.setAttribute('class', 'icon-tags');
+	var node2 = document.createTextNode(" Tags: ");
+	var subAnchor = document.createElement("a");
+	if(tags[0] == 'food') subAnchor.setAttribute('href', '/recipes.html');
+	else  subAnchor.setAttribute('href', '/creative-writing.html');
+	subAnchor.setAttribute('title', 'View posts tagged with &quot;' + tags[0] + '&quot;');
+	var span = document.createElement("span");
+	span.setAttribute('class', 'label label-info');
+	span.innerHTML = tags[0];
+	subAnchor.appendChild(span);
+	// Close paragraph
+	paragraph.appendChild(calendar);
+	paragraph.appendChild(node1);
+	paragraph.appendChild(tag);
+	paragraph.appendChild(node2);
+	paragraph.appendChild(subAnchor);
+	// Close div
+	postPreview.appendChild(anchor);
+	postPreview.appendChild(paragraph);
+	return postPreview;
   }
   
   function show_more_results_btn(){
