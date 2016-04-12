@@ -1,6 +1,6 @@
 $(function() {
 	var isFetchingPosts = false;
-	var postsToLoad = 10;
+	var postsToLoad = 3;
 	var all_results = new Array();
   // Initialize lunr with the fields to be searched, plus the boost.
   window.idx = lunr(function () {
@@ -35,37 +35,79 @@ $(function() {
   });
   
   function display_search_results(results) {
-    var $search_results = $("#search_results");
-	//var all_results = new Array();
-
     // Wait for data to load
     window.data.then(function(loaded_data) {
 
       // Are there any results?
       if (results.length) {
-        $search_results.empty(); // Clear any old results
+        $("#search_results").empty(); // Clear any old results
 
         // Iterate over the results
-        results.forEach(function(result) {
+        results.forEach(function(result,i) {
           var item = loaded_data[result.ref];
-
-          // Build a snippet of HTML for this result var appendString = '<li><a href="' + item.url + '">' + item.postHeading + '</a></li>';
-		  var postPreview = build_html(item.url, item.postHeading, item.subHeading, item.date, item.tags.split(', '));
-
-          // Add the snippet to the collection of results.
-          $search_results.append(postPreview);
-		  $search_results.append(document.createElement("HR"));
 		  
 		  // Populate all_results
 		  all_results.push({url:item.url, postHeading:item.postHeading, date:item.date, tags:item.tags, subHeading:item.subHeading});
+          
+		  if(i < postsToLoad){
+			  // Build a snippet of HTML for this result
+			  build_html(item.url, item.postHeading, item.subHeading, item.date, item.tags.split(', '));
+			}
         });
       } else {
         // If there are no results, let the user know.
-        $search_results.html('<li>No results found.<br/>Please check spelling, spacing, and so on...</li>');
+        $("#search_results").html('<p class="paragraph post-meta">No results found.<br/><li>Please check spelling, spacing, and so on.</li><li>Make sure you are not searching for common words like "and", "the", "yet" etc. Such words appear throughout the site and are automatically discarded during the search process.</li></p>');
       }
     });
 	return all_results;
   }
+  
+  function show_more_results_btn(){
+	  if(all_results.length > postsToLoad){
+		  var element = document.createElement("a");
+		  element.setAttribute('href', '#');
+		  element.setAttribute('class', 'next');
+		  element.onclick = function(e){getMoreResults();return false;};
+		  var anchorText = document.createTextNode("Show More Results");
+		  element.appendChild(anchorText);
+		  $(element).appendTo(".pagination");
+	  }
+  }
+  
+	//get more button
+	function getMoreResults(){
+		if (isFetchingPosts) return;
+		fetchPosts();
+	}
+  	
+	// Fetch a chunk of posts
+	function fetchPosts() {
+		isFetchingPosts = true;
+		
+		// After successfully loading a post, load the next one
+		var loadedPosts = 0;
+		var postIndex = 0;
+		while(postIndex < all_results.length-1){
+			postIndex = postsToLoad + loadedPosts;
+			if (loadedPosts < postsToLoad) {
+				fetchPostWithIndex(postIndex);
+			} else {
+				isFetchingPosts = false;
+			}
+			loadedPosts++;
+		}
+		disableFetching();
+	}
+	
+	function fetchPostWithIndex(index) {
+		var item = all_results[index];
+		build_html(item.url, item.postHeading, item.subHeading, item.date, item.tags.split(', '));
+	}
+	
+	function disableFetching() {
+		isFetchingPosts = false;
+		$(".pager").remove();
+	}
   
   function build_html(url, heading, subHeading, date, tags){
     // Create div
@@ -109,59 +151,8 @@ $(function() {
 	// Close div
 	postPreview.appendChild(anchor);
 	postPreview.appendChild(paragraph);
-	return postPreview;
+	// Add html to the collection of results.
+	$("#search_results").append(postPreview);
+	$("#search_results").append(document.createElement("HR"));
   }
-  
-  function show_more_results_btn(){
-	  if(all_results.length > postsToLoad){
-		  var element = document.createElement("a");
-		  element.setAttribute('href', '#');
-		  element.setAttribute('class', 'next');
-		  element.onclick = function(e){getMoreResults();};
-		  var anchorText = document.createTextNode("Show More Results");
-		  element.appendChild(anchorText);
-		  $(element).appendTo(".pagination");
-	  }
-  }
-  
-	//get more button
-	function getMoreResults(){
-		if (isFetchingPosts) return;
-		fetchPosts();
-		return false;
-	}
-  	
-	// Fetch a chunk of posts
-	function fetchPosts() {
-		isFetchingPosts = true;
-		
-		// After successfully loading a post, load the next one
-		var loadedPosts = 0;
-		var postIndex = 0;
-		do{
-			postIndex = postsToLoad + loadedPosts;
-			/*if (postIndex > all_results.length-1) {
-				disableFetching();
-				return;
-			}*/
-			if (loadedPosts < postsToLoad) {
-				fetchPostWithIndex(postIndex);
-			} else {
-				isFetchingPosts = false;
-			}
-			loadedPosts++;
-		}while(postIndex < all_results.length);
-		disableFetching();
-		//fetchPostWithIndex(postsToLoad + loadedPosts, callback);
-	}
-	
-	function fetchPostWithIndex(index) {
-		var item = all_results[index];
-		console.log(item);
-	}
-	
-	function disableFetching() {
-		isFetchingPosts = false;
-		$(".pager").remove();
-	}
 });
