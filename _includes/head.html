@@ -4,6 +4,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Mohmanyang">
+	<!--Search engine optimization-->
+	<meta name="description" content="{% if page.subHeading %}{{ page.subHeading | truncate: 160 | escape_once }}{% else %}{{ site.description }}{% endif %}">
+	{% if page.robots %}
+	  <meta name="robots" content="{{ page.robots }}">
+	{% endif %}
+	<link rel="canonical" href="{{ page.url | replace:'/index.html','/' | prepend: site.url }}">
+    {% if page.next.url %}
+	  <link rel="next" href="{{ page.next.url | replace:'/index.html','/' | prepend: site.url }}" title="{{ page.next.title }}">
+	{% endif %}
+	{% if page.previous.url %}
+	  <link rel="prev" href="{{ page.previous.url | replace:'/index.html','/' | prepend: site.url }}" title="{{ page.previous.title }}">
+	{% endif %}
+	<!--Twitter cards-->
+	<meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.name }}{% endif %}">
+	<meta name="twitter:description" content="{% if page.subHeading %}{{ page.subHeading | truncate: 160 | escape_once }}{% else %}{{ site.description }}{% endif %}">
+	<meta name="twitter:image" content="{% if page.sharingImg %}{{ page.sharingImg | prepend: site.url }}{% else %}{{ site.logo | prepend: site.url }}{% endif %}">
+	<meta name="twitter:url" content="{{ page.url | replace:'/index.html','/' | prepend: site.url }}">
+	<!--Open graph for facebook and google plus-->
 	<meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.name }}{% endif %}">
 	<meta property="og:type" content="{% if page.date %}article{% else %}website{% endif %}">
 	<meta property="og:url" content="{{ page.url | replace:'/index.html','/' | prepend: site.url }}">
@@ -11,7 +29,7 @@
 	<meta property="og:description" content="{% if page.subHeading %}{{ page.subHeading | truncate: 160 | escape_once }}{% else %}{{ site.description }}{% endif %}">
 	{% if page.tags %}
 	  {% for tag in page.tags %}
-	  <meta property="article:tag" content="{{ tag }}">
+		<meta property="article:tag" content="{{ tag }}">
 	  {% endfor %}
 	{% endif %}
 	
