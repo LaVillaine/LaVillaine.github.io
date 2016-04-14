@@ -1,0 +1,31 @@
+<ul class="list-inline text-center">
+		<li>
+			<span class="fa-stack fa-lg">
+				<p>Spread the word: </p>
+			</span>
+		</li>
+		<li>
+			<a href="http://twitter.com/share?&hashtags={% for tag in page.tags %}{{tag}},{% endfor %}" title="Share on Twitter" rel="nofollow" target="_blank">
+				<span class="fa-stack fa-lg">
+					<i class="fa fa-circle fa-stack-2x"></i>
+					<i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+				</span>
+			</a>
+		</li>
+		<li>
+			<a href="https://www.facebook.com/sharer/sharer.php?u={{site.url}}{{page.url}}" rel="nofollow" target="_blank" title="Share on Facebook">
+				<span class="fa-stack fa-lg">
+					<i class="fa fa-circle fa-stack-2x"></i>
+					<i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+				</span>
+			</a>
+		</li>
+		<li>
+			<a href="https://plus.google.com/share?url={{site.url}}{{page.url}}" rel="nofollow" target="_blank" title="Share on Google+">
+				<span class="fa-stack fa-lg">
+					<i class="fa fa-circle fa-stack-2x"></i>
+					<i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+				</span>
+			</a>
+		</li>
+	</ul>
