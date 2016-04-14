@@ -74,7 +74,7 @@ $(function(){
 		var getUrlData = function(data) {
 					$(firstChild).appendTo(".post-list");
 					$(secondChild).appendTo(".post-list");
-					$(data).find("#post-body").appendTo(".post-list");
+					$(data).find("#post-excerpt").appendTo(".post-list");
 					$("<hr>").appendTo(".post-list");
 					callback();
 				};
