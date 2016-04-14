@@ -60,7 +60,9 @@
 							<i class="icon-calendar"></i>Posted on: {{page.date | date_to_string}} 
 						</p>
 					</div>
-							{%include sharing.html%}
+					<div class="post-preview">
+						{%include sharing.html%}
+					</div>
 					<div id="post-body">
 						{{content}}
 					</div>
