@@ -38,9 +38,9 @@ $(function() {
     // Wait for data to load
     window.data.then(function(loaded_data) {
 		// Clear any old results
-        $("#search_results").empty(); 
-		$(".pagination").empty();
-		all_results = [];
+        //$("#search_results").empty(); 
+		//$(".pagination").empty();
+		//all_results = [];
 
       // Are there any results?
       if (results.length) {
