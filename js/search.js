@@ -37,11 +37,13 @@ $(function() {
   function display_search_results(results) {
     // Wait for data to load
     window.data.then(function(loaded_data) {
+		// Clear any old results
+        $("#search_results").empty(); 
+		$(".pagination").empty();
+		all_results = [];
 
       // Are there any results?
       if (results.length) {
-        $("#search_results").empty(); // Clear any old results
-
         // Iterate over the results
         results.forEach(function(result,i) {
           var item = loaded_data[result.ref];
@@ -59,7 +61,6 @@ $(function() {
         $("#search_results").html('<p class="paragraph post-meta">No results found.<br/><li>Please check spelling, spacing, and so on.</li><li>Make sure you are not searching for common words like "and", "the", "yet" etc. Such words appear throughout the site and are automatically discarded during the search process.</li></p>');
       }
     });
-	return all_results;
   }
   
   function show_more_results_btn(){
