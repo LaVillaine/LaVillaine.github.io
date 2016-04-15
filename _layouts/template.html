@@ -8,33 +8,32 @@
     {%include nav.html%}
 	{%include post-header.html%}
 	
-	<!-- Post Content -->
-	<article>
-		<div class="container container-smooth-sm"  style="padding: 0px">
-			<div class="row row-offcanvas row-offcanvas-left">
-				<div class="col-lg-3 col-md-3 sidebar-offcanvas" style="padding-left: 5px" id="sidebarLeft" role="navigation">
-					<div id="disqus_thread" class="well sidebar-nav">
-						<ul class="nav">
-							<script type="text/javascript">						
-								var disqus_config = function () {
-									this.page.url = '{{ site.url }}{{ page.url }}';
-									this.page.identifier = '{{page.postHeading}}';
-								};							
-								(function() {  // DON'T EDIT BELOW THIS LINE
-									var d = document, s = d.createElement('script');								
-									s.src = '//mohmanyang.disqus.com/embed.js';								
-									s.setAttribute('data-timestamp', +new Date());
-									(d.head || d.body).appendChild(s);
-								})();
-							</script>
-							<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-						</ul>
-					</div>
+	<!-- Main Content -->
+    <div class="container container-smooth-sm"  style="padding: 0px">
+        <div class="row">
+			<div class="col-lg-3 col-md-3  hide-me">				
+				<div id="disqus_thread" class="well sidebar-nav">
+					<ul class="nav">
+						<script type="text/javascript">						
+							var disqus_config = function () {
+								this.page.url = '{{ site.url }}{{ page.url }}';
+								this.page.identifier = '{{page.postHeading}}';
+							};							
+							(function() {  // DON'T EDIT BELOW THIS LINE
+								var d = document, s = d.createElement('script');								
+								s.src = '//mohmanyang.disqus.com/embed.js';								
+								s.setAttribute('data-timestamp', +new Date());
+								(d.head || d.body).appendChild(s);
+							})();
+						</script>
+						<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+					</ul>
 				</div>
-				<div class="col-lg-9 col-md-9">
+			</div>
+			<div class="col-lg-9 col-md-9">
 					<div class="post-preview">
 						<p class="visible-xs visible-sm">
-							<button type="button" class="btn btn-default btn-sm" data-toggle="offcanvas">
+							<button type="button" class="btn btn-default btn-sm" data-toggle="showMe">
 								<span class="glyphicon glyphicon-comment"></span> Comments
 							</button>
 						</p>

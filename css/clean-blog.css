@@ -391,7 +391,7 @@ body {
 }
 
 /*
- * Off Canvas
+ * Hide comments
  */
 @media screen and (max-width: 768px){
 	.hide-me{
@@ -399,28 +399,6 @@ body {
 	}
 	.hide-me.active{
 		display: inline !important;
-	}
-	.row-offcanvas{
-		position: relative;
-		-webkit-transition: all 0.4s ease-out;
-		-moz-transition: all 0.4s ease-out;
-		transition: all 0.4s ease-out;
-	}
-	
-	.row-offcanvas-left
-		#sidebarLeft{
-			left: -40%;
-		}
-		
-	.row-offcanvas-left.active{
-		left: 40%;
-	}
-	
-	.sidebar-offcanvas{
-		position: absolute;
-		top: 0;
-		width: 40%;
-		margin-left: 10px;
 	}
 }
 
@@ -435,28 +413,6 @@ body {
         width: auto;
         max-width: none;
     }
-
-	.row-offcanvas{
-		position: relative;
-		-webkit-transition: all 0.4s ease-out;
-		-moz-transition: all 0.4s ease-out;
-		transition: all 0.4s ease-out;
-	}
-	
-	.row-offcanvas-left
-	#sidebarLeft{
-			left: -40%;
-		}
-		
-	.row-offcanvas-left.active{
-		left: 40%;
-	}
-	.sidebar-offcanvas{
-		position: absolute;
-		top: 0;
-		width: 40%;
-		margin-left: 10px;
-	}
 }
 
 /*
