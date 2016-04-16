@@ -7,12 +7,14 @@ image: "/img/home-bg.jpg"
 ---
 <div class="post-list">
 	{% for post in site.tags.prose limit: 3 %}
-		<h1><a href="{{ post.url }}" title="View entire post">{{ post.postHeading }}</a></h1>
-		<p class="author">
-			<span class="date">Posted on: {{post.date | date_to_string}}</span>
-		</p>
-		<div class="content">
-			{{ post.excerpt }}
+		<div class="container" style="width:100%">
+			<h1><a href="{{ post.url }}" title="View entire post">{{ post.postHeading }}</a></h1>
+			<p class="author">
+				<span class="date">Posted on: {{post.date | date_to_string}}</span>
+			</p>
+			<div class="content">
+				{{ post.excerpt }}
+			</div>
 		</div>
 		<hr>
 	{% endfor %}

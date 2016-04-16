@@ -72,8 +72,9 @@ $(function(){
 		var firstChild = '<div class="container" style="width:100%"><h1><a href="' + postURL + '" title="View entire post">' + postHeadings[index] + '</a></h1>'
 		var secondChild = '<p class="author"><span class="date">Posted on: ' + postDates[index] + '</span></p><div class="content">'
 		var getUrlData = function(data) {
-					var excerpt = $(data).find("#post-excerpt");					
-					excerpt.attr('class', 'col-md-12 text-left');
+					var excerpt = $(data).find("#post-excerpt");
+					console.log(excerpt);
+					if(excerpt[0].className)excerpt.attr('class', 'col-md-12 text-left');
 					var toAppend = firstChild + secondChild + excerpt[0].outerHTML + '</div></div><hr>';
 					$(toAppend).appendTo(".post-list");
 					callback();
