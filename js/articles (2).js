@@ -137,7 +137,7 @@ $(function() {
 	var node2 = document.createTextNode(" Tags: ");
 	var subAnchor = document.createElement("a");
 	if(tags[0] == 'food') subAnchor.setAttribute('href', '/recipes.html');
-	else  subAnchor.setAttribute('href', '/creative-writing.html');
+	else  subAnchor.setAttribute('href', '/articles.html');
 	subAnchor.setAttribute('title', 'View posts tagged with "' + tags[0] + '"');
 	var span = document.createElement("span");
 	span.setAttribute('class', 'label label-info');

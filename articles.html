@@ -1,12 +1,12 @@
 ---
 layout: default
-title: "Creative Writing"
-siteHeading: "Creative Writing"
+title: "Articles"
+siteHeading: "Articles"
 subHeading: "Food for thought"
 image: "/img/home-bg.jpg"
 ---
 <div class="post-list">
-	{% for post in site.tags.prose limit: 2 %}
+	{% for post in site.tags.prose limit: 3 %}
 		<h1><a href="{{ post.url }}" title="View entire post">{{ post.postHeading }}</a></h1>
 		<p class="author">
 			<span class="date">Posted on: {{post.date | date_to_string}}</span>

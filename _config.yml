@@ -10,6 +10,6 @@ gems:
    - jekyll-coffeescript
    - jekyll-paginate
 
-paginate: 3
+paginate: 10
 paginate_path: "page:num"
 excerpt_separator: <!--excerpt-->

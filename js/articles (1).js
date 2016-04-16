@@ -1,7 +1,7 @@
 $(function(){
 	var postURLs;
 	var isFetchingPosts = false;
-	var postsToLoad = $(".post-list").children().length/4;
+	var postsToLoad = $(".post-list").children().length/2;
 	
 	// Load the JSON file containing all URLs
 	var getJsonRes = function(data){
@@ -11,7 +11,7 @@ $(function(){
 						postDates = data["food"]["date"];
 					}
 					
-					if(document.title == "Creative Writing"){
+					if(document.title == "Articles"){
 						postURLs = data["prose"]["url"];
 						postHeadings = data["prose"]["heading"];
 						postDates = data["prose"]["date"];
@@ -50,7 +50,7 @@ $(function(){
 		// Load as many posts as there were present on the page when it loaded
 		// After successfully loading a post, load the next one
 		var loadedPosts = 0;
-		var postCount = $(".post-list").children().length/4;
+		var postCount = $(".post-list").children().length/2;
 		var callback = function() {
 					loadedPosts++;
 					var postIndex = postCount + loadedPosts;
@@ -69,13 +69,13 @@ $(function(){
 	
 	function fetchPostWithIndex(index, callback) {
 		var postURL = postURLs[index];
-		var firstChild = '<h1><a href="' + postURL + '" title="View entire post">' + postHeadings[index] + '</a></h1>'
-		var secondChild = '<p class="author"><span class="date">Posted on: ' + postDates[index] + '</span></p>'
+		var firstChild = '<div class="container" style="width:100%"><h1><a href="' + postURL + '" title="View entire post">' + postHeadings[index] + '</a></h1>'
+		var secondChild = '<p class="author"><span class="date">Posted on: ' + postDates[index] + '</span></p><div class="content">'
 		var getUrlData = function(data) {
-					$(firstChild).appendTo(".post-list");
-					$(secondChild).appendTo(".post-list");
-					$(data).find("#post-excerpt").appendTo(".post-list");
-					$("<hr>").appendTo(".post-list");
+					var excerpt = $(data).find("#post-excerpt");					
+					excerpt.attr('class', 'col-md-12 text-left');
+					var toAppend = firstChild + secondChild + excerpt[0].outerHTML + '</div></div><hr>';
+					$(toAppend).appendTo(".post-list");
 					callback();
 				};
 		$.get(postURL, getUrlData);
