@@ -15,26 +15,19 @@
 				{{content}}
 			</div>
 			<!--Google Ads ?-->
-			<div class="col-lg-4 col-lg-offset-1 col-md-4 col-md-offset-1 col-sm-4"></div>
-			<!--div class="col-lg-3 col-md-3"> 				
-				<div id="disqus_thread" class="well sidebar-nav">
-					<ul class="nav">
-						<script type="text/javascript">						
-							var disqus_config = function () {
-								this.page.url = '{{ site.url }}{{ page.url }}';
-								this.page.identifier = '{{page.postHeading}}';
-							};							
-							(function() {  // DON'T EDIT BELOW THIS LINE
-								var d = document, s = d.createElement('script');								
-								s.src = '//mohmanyang.disqus.com/embed.js';								
-								s.setAttribute('data-timestamp', +new Date());
-								(d.head || d.body).appendChild(s);
-							})();
-						</script>
-						<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-					</ul>
-				</div>
-			</div-->
+			<div class="col-lg-4 col-lg-offset-1 col-md-4 col-md-offset-1 col-sm-4">
+				{% if page.bank %}
+					<div style="padding-top:60px">
+					{% for click_hash in page.bank %}{% for click_link in click_hash %}
+						<div style="padding:10px 10px 30px 10px; width:90%">
+						<a href="{{click_link[1]}}"  title="{{click_link[0]}}" target="_top">
+							<img class="img-responsive" src="/img/bank/{{click_link[0]}}.jpg">
+						</a>
+						</div>
+					{% endfor %}{% endfor %}
+					</div>
+				{% endif %}
+			</div>
         </div>
     </div>
 
