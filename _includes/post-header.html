@@ -1,15 +1,21 @@
 <!-- Post Header -->
     <!-- Set your background image for this header on the line below. -->
+	<div id="myCarousel" class="carousel slide">
+		<div class="carousel-inner">
+			<div class="item active" style="margin-bottom:50px">
+				<img src='{% if page.image %}{{site.url}}{{page.image}}{% else %}{{site.url}}/img/default-bg.jpg{% endif %}' class="img-responsive">
+			</div>
+		</div>
+	</div>
 	
-		<!--img style="object-fit: cover;margin-bottom: 50px;max-height:100%" src="{% if page.image %}{{site.url}}{{page.image}}{% else %}{{site.url}}/img/default-bg.jpg{% endif %}"-->
-    <header class="intro-header" style="padding-bottom:20%;background-image: url('{% if page.image %}{{site.url}}{{page.image}}{% else %}{{site.url}}/img/default-bg.jpg{% endif %}')"-->
+    <!--header class="intro-header" style="padding-bottom:2%;background-image: url('{% if page.image %}{{site.url}}{{page.image}}{% else %}{{site.url}}/img/default-bg.jpg{% endif %}')">
 		<div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="post-heading">
-						<h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h1>
+						<h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h1>
                     </div>
                 </div>
             </div>
         </div>
-	</header>
+	</header-->
