@@ -482,5 +482,25 @@ body {
 	background-color: #faf8f5;
 }
 
-.tips-text{font-style: italic;font-size: 14px;
+.tips-text{
+	font-style: italic;
+	font-size: 14px;
+}
+
+/*
+ * Shift header image based on screen size
+ */
+.header-offset{
+	margin: 0px 0px 50px 0px;
+}
+@media screen and (max-width: 768px){
+	.header-offset{
+		margin: 50px 0px 10px 0px;
+	}
+} 
+
+@media screen and (max-width: 991px){
+	.header-offset{
+		margin: 50px 0px 10px 0px;
+	}
 }
