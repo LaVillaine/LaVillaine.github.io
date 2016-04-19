@@ -14,7 +14,7 @@ image: "/img/home-bg.jpg"
 				<span class="date">Posted on: {{post.date | date_to_string}}</span>
 			</p>
 			<div class="content">
-				{{ post.excerpt | remove: '<div class="container" style="width:100%"><div class="row">' | replace: 'col-md-6', 'col-md-12'}}
+				{{ post.excerpt | remove: '<div class="container" style="width:100%"><div class="row">' | replace: 'col-md-6', 'col-md-12' | append: '</div>'}}
 			</div>
 		</div>
 		<hr>

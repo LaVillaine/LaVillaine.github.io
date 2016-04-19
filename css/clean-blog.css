@@ -504,3 +504,11 @@ body {
 		margin: 50px 0px 10px 0px;
 	}
 }
+
+/*
+ * Show image inline
+ */
+.inline-image{
+	max-height:100%;
+	max-width:100%;
+}
