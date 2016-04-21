@@ -5,7 +5,7 @@
 			<div class="item active header-offset" >
 				<img src='{% if page.image %}{{site.url}}{{page.image}}{% else %}{{site.url}}/img/default-bg.jpg{% endif %}' class="img-responsive centre-banner">
 				<div class="carousel-caption">
-					<!--div class="blog-heading"-->
+					<div class="blog-heading">
 						<h1>
 							{% if page.siteHeading %}
 								{{page.siteHeading}}
@@ -14,14 +14,14 @@
 							{% endif %}
 						</h1>
 						<hr class="small">
-						<h3><!--span class="subheading"-->
+						<span class="subheading">
 							{% if page.subHeading %}
 								{{page.subHeading}}
 							{% else %}
 								No Subheading Provided
 							{% endif %}
-						</h3>
-					<!--/div-->
+						</span>
+					</div>
 				</div>
 			</div>
 		</div>

@@ -528,14 +528,14 @@ body {
  * Headings
  */
 .blog-heading{
-  /*padding: 100px 0px 50px;*/
+  padding: 100px 0px 50px 0px;
   color: white;
   text-align: center;
 }
 
 .blog-heading h1{
 	margin-top: 50px;
-	font-size: 50px;
+	font-size: 25px;
 }
 
 @media only screen and (min-width: 768px) {
@@ -549,7 +549,7 @@ body {
 }
 
 .blog-heading .subheading {
-  font-size: 24px;
+  font-size: 15px;
   line-height: 1.1;
   display: block;
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
