@@ -1,11 +1,11 @@
 <!--http://bootsnipp.com/snippets/featured/bootstrap-carousel-with-text-->
 <!-- Page Header -->
-	<div id="myCarousel" class="carousel slide">
+	<div class="carousel slide">
 		<div class="carousel-inner">
 			<div class="item active header-offset">
-				<img style="width: 100%;height: 460px" src='{% if page.image %}{{site.url}}{{page.image}}{% else %}{{site.url}}/img/default-bg.jpg{% endif %}' class="img-responsive">
-				<div style="position: absolute;top: 20%; left: 1.8%; right: auto; width: 96.66666666666666%">
-				<!--div class="carousel-caption"-->
+				<img src='{% if page.image %}{{site.url}}{{page.image}}{% else %}{{site.url}}/img/default-bg.jpg{% endif %}' class="img-responsive">
+				<div class="container">
+				<div class="carousel-caption">
 					<div class="site-heading">
 						<h1>
 							{% if page.siteHeading %}
@@ -23,7 +23,7 @@
 							{% endif %}
 						</span>
 					</div>
-				<!--/div-->
+				</div>
 				</div>
 			</div>
 		</div>
