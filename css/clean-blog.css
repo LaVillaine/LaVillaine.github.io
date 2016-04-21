@@ -546,6 +546,10 @@ body {
 	.blog-heading h1{
 		font-size: 80px;
 	}
+	
+	.blog-heading .subheading {
+		font-size: 24px;
+	}
 }
 
 .blog-heading .subheading {
@@ -555,4 +559,10 @@ body {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 300;
   margin: 10px 0 0;
+}
+
+@media only screen and (max-width: 768px) {
+	.carousel-caption{
+		bottom: -50px;
+	}
 }
