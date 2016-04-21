@@ -528,7 +528,7 @@ body {
  * Headings
  */
 .blog-heading{
-  padding: 100px 0 50px;
+  /*padding: 100px 0px 50px;*/
   color: white;
   text-align: center;
 }
