@@ -572,3 +572,13 @@ body {
 		bottom: -50px;
 	}
 }
+
+@media only screen and (min-width: 991px) {
+	.carousel-caption h1{
+		font-size: 80px;
+	}
+	
+	.carousel-caption .blog-heading{
+		padding-bottom: 50px;
+	}
+}
