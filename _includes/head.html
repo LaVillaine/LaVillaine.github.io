@@ -19,7 +19,7 @@
 	<!--Twitter cards-->
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.name }}{% endif %}">
-	<meta name="twitter:description" content="{% if page.subHeading %}{{ page.subHeading | truncate: 160 | escape_once }}{% else %}{{ site.description }}{% endif %}">
+	<meta name="twitter:description" content="{{page.title}}. {% if page.subHeading %}{{ page.subHeading | truncate: 160 | escape_once }}{% else %}{{ site.description }}{% endif %}. If you're looking for recipes or just some food for thought, you're in the right place.">
 	<meta name="twitter:image" content="{% if page.sharingImg %}{{ page.sharingImg | prepend: site.url }}{% else %}{{ site.logo | prepend: site.url }}{% endif %}">
 	<meta name="twitter:url" content="{{ page.url | replace:'/index.html','/' | prepend: site.url }}">
 	<!--Open graph for facebook and google plus-->
@@ -27,7 +27,7 @@
 	<meta property="og:type" content="{% if page.date %}article{% else %}website{% endif %}">
 	<meta property="og:url" content="{{ page.url | replace:'/index.html','/' | prepend: site.url }}">
 	<meta property="og:image" content="{% if page.sharingImg %}{{ page.sharingImg | prepend: site.url }}{% else %}{{ site.logo | prepend: site.url }}{% endif %}">
-	<meta property="og:description" content="{% if page.subHeading %}{{ page.subHeading | truncate: 160 | escape_once }}{% else %}{{ site.description }}{% endif %}">
+	<meta property="og:description" content="{{page.title}}. {% if page.subHeading %}{{ page.subHeading | truncate: 160 | escape_once }}{% else %}{{ site.description }}{% endif %}. If you're looking for recipes or just some food for thought, you're in the right place.">
 	{% if page.tags %}
 	  {% for tag in page.tags %}
 		<meta property="article:tag" content="{{ tag }}">
