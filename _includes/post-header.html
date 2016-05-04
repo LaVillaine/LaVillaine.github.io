@@ -2,7 +2,7 @@
 	<div id="myCarousel" class="carousel slide">
 		<div class="carousel-inner">
 			<div class="item active header-offset">
-				<img src='{% if page.image %}{{site.url}}{{page.image}}{% else %}{{site.url}}/img/banner.jpg{% endif %}' class="img-responsive centre-banner">
+				<img src='{% if page.image %}{{site.baseurl}}{{page.image}}{% else %}{{site.baseurl}}/img/banner.jpg{% endif %}' class="img-responsive centre-banner">
 			</div>
 		</div>
 	</div>

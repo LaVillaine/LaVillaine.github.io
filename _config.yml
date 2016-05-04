@@ -1,6 +1,8 @@
 name: "Mohmanyang"
 description: "Food for thought. From my kitchen to yours, with love."
 logo: "/img/logo.jpg"
+url: "http://mohmanyang.com" 
+baseurl: ""
 github: [metadata]
 markdown: kramdown
 input: GFM
