@@ -243,3 +243,15 @@
         padding-bottom: 50px;
     }
 }
+
+.for-goog{
+	padding:10px 10px 30px 10px;
+	width:90%;
+	max-height:300px;
+}
+
+@media only screen and (max-width: 767px) {
+    .for-goog{
+		max-height:150px;
+	}
+}
