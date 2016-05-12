@@ -250,7 +250,7 @@
 	max-height:300px;
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 768px) {
     .for-goog{
 		max-height:150px;
 	}
