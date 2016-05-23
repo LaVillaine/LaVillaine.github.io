@@ -247,17 +247,17 @@
 .for-goog{
 	padding:10px 10px 30px 10px;
 	width:90%;
-	height:150px;
+	max-height:150px;
 }
 
 @media only screen and (min-width: 1200px) {
     .for-goog{
-		height:300px;
+		max-height:300px;
 	}
 }
 
 @media only screen and (min-width: 991px) {
     .for-goog{
-		height:200px;
+		max-height:200px;
 	}
 }
