@@ -255,3 +255,9 @@
 		height:300px;
 	}
 }
+
+@media only screen and (min-width: 991px) {
+    .for-goog{
+		height:200px;
+	}
+}
