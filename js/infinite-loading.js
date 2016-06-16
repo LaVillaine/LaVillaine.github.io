@@ -73,7 +73,8 @@ $(function(){
 		var secondChild = '<p class="author"><span class="date">Posted on: ' + postDates[index] + '</span></p><div class="content">'
 		var getUrlData = function(data) {
 					var excerpt = $(data).find("#post-excerpt");
-					console.log(excerpt);
+					var im = $(excerpt).find(".inline-image");
+					im.remove();
 					if(excerpt[0].className)excerpt.attr('class', 'col-md-12 text-left');
 					var toAppend = firstChild + secondChild + excerpt[0].outerHTML + '</div></div><hr>';
 					$(toAppend).appendTo(".post-list");
