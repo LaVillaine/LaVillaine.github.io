@@ -11,9 +11,20 @@
 	<!-- Main Content -->
     <div class="container container-smooth-sm">
         <div class="row">
-			<div class="col-lg-3 col-md-3  hide-me">				
+			<div class="col-lg-3 col-md-3 hide-me active">				
 				<div id="disqus_thread" class="well sidebar-nav">
-					<ul class="nav">
+					<div class="thumbnail center text-center">
+						<h2 style="font-family: inherit;font-weight: 500;"><b>Subscribe</b></h2>
+						<p style="font-size: 14px;">Receive new posts straight to your inbox.</p>
+							<div class="input-prepend">
+							    <span class="add-on"><span class="glyphicon glyphicon-envelope"></span></span>
+								<input type="text" id="" name="" placeholder="your@email.com" style="width:70%;">
+							</div>
+							<br/>
+							<input type="submit" value="Yes. Email me." class="btn btn-large" style="width:auto;border: 1px solid #cccccc;background-image:-webkit-linear-gradient(top, #ffffff, #e6e6e6);"/>
+						</form>
+					</div>
+					<!--ul class="nav">
 						<script type="text/javascript">						
 							var disqus_config = function () {
 								this.page.url = '{{ site.url }}{{ page.url }}';
@@ -27,17 +38,17 @@
 							})();
 						</script>
 						<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-					</ul>
+					</ul-->
 				</div>
 			</div>
 			<div class="col-lg-9 col-md-9">
-					<div class="post-preview">
+					<!--div class="post-preview">
 						<p class="visible-xs visible-sm">
 							<button type="button" class="btn btn-default btn-sm" data-toggle="showMe">
 								<span class="glyphicon glyphicon-comment"></span> Comments
 							</button>
 						</p>
-					</div>
+					</div-->
 					<h1 style="font-size:50px">
 						{% if page.postHeading %}
 							{{page.postHeading}}
