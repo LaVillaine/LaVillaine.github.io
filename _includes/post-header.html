@@ -3,6 +3,9 @@
 		<div class="carousel-inner">
 			<div class="item active header-offset">
 				<img src='{% if page.image %}{{site.baseurl}}{{page.image}}{% else %}{{site.baseurl}}/img/banner.jpg{% endif %}' class="img-responsive centre-banner">
+				<p class="paragraph post-meta">
+					<i class="icon-calendar"></i>{{page.credit}}
+				</p>
 			</div>
 		</div>
 	</div>
