@@ -27,7 +27,7 @@
 
 @media screen and (max-width: 768px) {
 	.container-smooth-sm{
-		margin-left: 3px;
+		margin-left: 9px;
 	}
 }
 
@@ -311,3 +311,4 @@
 	font-weight: normal;
 	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
+@media screen and (max-width:768px){#disqus_thread{margin-left:20px}
