@@ -28,15 +28,6 @@
 						(adsbygoogle = window.adsbygoogle || []).push({});
 						</script>
 					</div>
-					{% if page.bank %}
-						{% for click_hash in page.bank %}{% for click_link in click_hash %}
-							<div style="padding:10px 10px 30px 10px; width:90%">
-							<a href="{{click_link[1]}}"  title="{{click_link[0]}}" target="_top">
-								<img class="img-responsive" src="/img/bank/{{click_link[0]}}.jpg">
-							</a>
-							</div>
-						{% endfor %}{% endfor %}
-					{% endif %}
 				</div>
 			</div>
         </div>
