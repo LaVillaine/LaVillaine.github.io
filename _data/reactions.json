@@ -1,14 +1,31 @@
 {
-  "Partner or Purpose": [
+  "The Blind Man of Marrakech": [
     {
-      "name": "Geo228",
-      "dateTime": "08 November 2018, 6:32 PM",
-      "reply": "Great blog post! Subscribed"
+      "name": "Austin",
+      "dateTime": "09 November 2018, 12:24 AM",
+      "reply": "😣🔥👌"
     },
     {
-      "name": "JanKN",
-      "dateTime": "08 November 2018, 10:32 PM",
-      "reply":  "Keep up the GREAT work! I am cheering for you!!"
+      "name": "EnowFlorence",
+      "dateTime": "09 November 2018, 01:28 PM",
+      "reply": "Very often God appears to us in so many ways but we don't notice Him either because we are carried away with our personal interest or because we discriminate. We therefore missed our blessings."
+    },
+    {
+      "name": "MohManyang",
+      "dateTime": "10 November 2018, 07:56 PM",
+      "reply":  "@EnowFlorence that's so true, many of us miss our blessings without realising it"
+    }
+  ],
+  "Marvel's Black Panther": [
+    {
+      "name": "Soob",
+      "dateTime": "09 November 2018, 07:39 PM",
+      "reply":  "I thought the film was visually stunning, and even better now learning about the specific aspects of African cultures it's based on - thank you! I saw it with a white British friend of mine and he seemed embarrassed to enjoy it, like he felt wrong about ogling the African-ness for entertainment or something. :-S One critique I'd make about the film - did stopping the shipment of weapons imply that all the Africans in the world are 'the bad guy'?! I'd like to think that even if the shipment got through, it wouldn't inevitably lead to all-out war, and something more nuanced would've happened. I'm not sure."
+    },
+    {
+      "name": "MohManyang",
+      "dateTime": "10 November 2018, 07:58 PM",
+      "reply":  "@Soob I agree with you about the shipment of weapons. On its own, i don't think it would have led to all out war. If war ensued it would have been a contributing factor but not the sole cause"
     }
   ]
 }
