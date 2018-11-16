@@ -37,8 +37,9 @@ layout: template
 				{% for react in site.data.reactions[page.postHeading] %}
 					<div class="w3-row w3-margin-bottom">
 						<hr style="margin-top:0px">
-						<div class="w3-col l10 m9">
-							<h4>{{react.name}} <span class="w3-opacity w3-medium">{{react.dateTime}}</span></h4>
+						<div class="w3-col l10 m9" style="text-align:left">
+							<h4>{{react.name}}</h4>
+                            <h4><span class="w3-opacity w3-medium">{{react.dateTime}}</span></h4>
 							<p>{{react.reply}}</p>
 						</div>
 					</div>
