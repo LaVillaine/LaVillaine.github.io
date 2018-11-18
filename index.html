@@ -36,13 +36,13 @@ subHeading: "Mohmanyang. Creative Writing. Opinion pieces. Poetry"
 <footer class="w3-margin">
 	{% if paginator.total_pages > 1 %}
 		{% if paginator.previous_page %}
-			<button class="w3-button w3-black w3-padding-large w3-margin-bottom w3-hide-small" onclick="window.location.href='{{ paginator.previous_page_path }}#entries'" >&larr; Previous</button>
-			<button class="w3-button w3-black w3-padding-large w3-margin-bottom w3-hide-medium w3-hide-large" onclick="window.location.href='{{ paginator.previous_page_path }}#entries'" >&larr; </button>
+			<button class="w3-button w3-white border-prop w3-padding-large w3-margin-bottom w3-hide-small" onclick="window.location.href='{{ paginator.previous_page_path }}#entries'" >&larr; Previous</button>
+			<button class="w3-button w3-white border-prop w3-padding-large w3-margin-bottom w3-hide-medium w3-hide-large" onclick="window.location.href='{{ paginator.previous_page_path }}#entries'" >&larr; </button>
 		{% endif %}
 		<button class="w3-button w3-padding-large w3-white w3-border w3-margin-bottom" >Page: {{ paginator.page }} of {{ paginator.total_pages }}</button>
 		{% if paginator.next_page %}
-			<button class="w3-button w3-black w3-padding-large w3-margin-bottom w3-hide-small" onclick="window.location.href='{{ paginator.next_page_path }}#entries'" >Next &rarr;</button>
-			<button class="w3-button w3-black w3-padding-large w3-margin-bottom w3-hide-medium w3-hide-large" onclick="window.location.href='{{ paginator.next_page_path }}#entries'" > &rarr;</button>
+			<button class="w3-button w3-white border-prop w3-padding-large w3-margin-bottom w3-hide-small" onclick="window.location.href='{{ paginator.next_page_path }}#entries'" >Next &rarr;</button>
+			<button class="w3-button w3-white border-prop w3-padding-large w3-margin-bottom w3-hide-medium w3-hide-large" onclick="window.location.href='{{ paginator.next_page_path }}#entries'" > &rarr;</button>
 		{% endif %}
 	{% endif %}
 </footer>
