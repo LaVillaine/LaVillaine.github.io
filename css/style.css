@@ -41,3 +41,13 @@ body {
 	    padding-left: 5px;
 	}
 }
+
+.border-prop{
+	border: 1px solid #666666;
+	border-radius: 3px;
+}
+
+.border-underline{
+	border-bottom: 0.5px solid #666666;
+	border-radius: 3px;
+}
