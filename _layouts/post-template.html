@@ -23,6 +23,7 @@ layout: template
 			<div id="postContent" class="w3-justify" style="padding-right:20px;line-height:1.6">
 		{% endif %}
 			{{content}}
+			{% if page.related %}<p>Want to read more write ups like this?<a href="{{site.baseurl}}/tag/{{page.related}}#entries"> Click Here </a></p>{% endif %}
 			<hr style="margin-top:0px">
 			<p class="w3-right">
 				<button id="reactionsBtn" class="w3-button w3-black" onclick="{% if site.data.reactions[page.postHeading] %}viewHideReactions('reactions'){% else %}javascript:void(0){% endif %}">
