@@ -1,3 +1,24 @@
+var year = "2020";
+var month = "04";
+var version = "1.0.0";
+var locale = "en_GB";
+
+var resetForm = function (form) {
+	form.reset();
+	form.year.value = year;
+	form.month.value = month;
+	form.version.value = version;
+	form.locale.value = locale;
+};
+
+var validateHiddenInputs = function (form) {
+	if (form.year.value != year) { return false; }
+	if (form.month.value != month) { return false; }
+	if (form.version.value != version) { return false; }
+	if (form.locale.value != locale) { return false; }
+	return true;
+};
+
 // Toggle between hiding and showing blog replies/comments
 
 function viewHideReactions(id) {
@@ -52,7 +73,6 @@ function loadMoreEntries(btn, id, iter)
 function subscribe(formId){
 	var formIndex = formId.slice(-1);
 	var displayEmailError = "displayEmailError" + formIndex;
-	var rat = "rat" + formIndex;
 	var email = "email" + formIndex;
 	
 	document.getElementById(displayEmailError).style.display = 'none';
@@ -64,23 +84,27 @@ function subscribe(formId){
 		return;
 	}
 	
-	var f_rat = document.getElementById(rat);
-	if(f_rat.value != "")
+	if (!validateHiddenInputs(f[0])) {
+		document.getElementById(displayEmailError).style.display = '';
 		return;
+	}
 		
 	var f_email = document.getElementById(email);
 	
 	var dataObj = {};
 	dataObj["Email"] = f_email.value;
+	dataObj["FormId"] = formId;
 	dataObj["_subject"] = "New Subscription!";
-	
-	f_email.value = '';
-	
+		
 	$.ajax({
 		dataType: "json",
 		url: "https://formsapi.jabwn.com/key/RJgPflYOU79fwdeJbPU8",
 		method: "POST",
 		data: dataObj
+	}).done(function(data, status, xhr){
+		resetForm(f[0]);
+	}).fail(function (xhr, status, error) {
+		resetForm(f[0]);
 	});
 	$("#thank-you").css('display', 'block');
 	$("#subscribe").css('display', 'none');
@@ -111,9 +135,9 @@ function reply(formId, postUrl){
 		error = true;
 	}
 	
-	var f_rat = document.getElementById("replyRat");
-	if(f_rat.value != "")
+	if (!validateHiddenInputs(f[0])){
 		error = true;
+	}
 	
 	if(error == true)
 		return;
@@ -140,6 +164,10 @@ function reply(formId, postUrl){
 		url: "https://formsapi.jabwn.com/key/RJgPflYOU79fwdeJbPU8",
 		method: "POST",
 		data: dataObj
+	}).done(function(data, status, xhr){
+		resetForm(f[0]);
+	}).fail(function (xhr, status, error) {
+		resetForm(f[0]);
 	});	
 	$("#thanks").css('display', 'block');
 	$("#reply").css('display', 'none');
@@ -150,4 +178,23 @@ jQuery( document ).ready( function($){
 	/**YEAR**/
 	var d = new Date();
 	$("#theYear").text(d.getFullYear());
+	/**STAMP**/
+	year = d.getHours();
+	month = d.getMinutes();
+	version = d.getSeconds();
+	locale = d.getMilliseconds();
+	
+	// reset forms on page refresh
+	var contactForm1 = $("#contactForm1");
+	if (contactForm1.length > 0) {
+		resetForm(contactForm1[0]);
+	}
+	var contactForm2 = $("#contactForm2");
+	if (contactForm2.length > 0) {
+		resetForm(contactForm2[0]);
+	}
+	var replyForm = $("#replyForm");
+	if (replyForm.length > 0) {
+		resetForm(replyForm[0]);
+	}
 });
