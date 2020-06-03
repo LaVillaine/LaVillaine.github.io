@@ -146,4 +146,8 @@ function reply(formId, postUrl){
 	return false;
 }
 
-
+jQuery( document ).ready( function($){
+	/**YEAR**/
+	var d = new Date();
+	$("#theYear").text(d.getFullYear());
+});
