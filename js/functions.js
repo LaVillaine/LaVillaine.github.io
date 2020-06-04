@@ -95,6 +95,8 @@ function subscribe(formId){
 	dataObj["Email"] = f_email.value;
 	dataObj["FormId"] = formId;
 	dataObj["_subject"] = "New Subscription!";
+	dataObj["_honey"] = f[0]._honey.value;
+	dataObj["_kitemt"] = f[0]._kitemt.value;
 		
 	$.ajax({
 		dataType: "json",
@@ -154,6 +156,8 @@ function reply(formId, postUrl){
 	dataObj["Comment"] = f_comment.value;
 	dataObj["_subject"] = "Mohmanyang Comment: " + f_post;
 	dataObj["_replyto"] = f_email.value;
+	dataObj["_honey"] = f[0]._honey.value;
+	dataObj["_kitemt"] = f[0]._kitemt.value;
 	
 	f_name.value = '';
 	f_comment.value = '';
