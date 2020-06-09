@@ -32,7 +32,7 @@
 			  <p>Find something on the blog.</p>
 			  <p><input id="search_box" class="w3-input w3-border" type="text" placeholder="Enter Search Term" style="width:100%"></p>
 			  <p id="displaySearchError" style="display:none; color:red">Please enter a search term</p>
-			  <p><button id="searchBtn" type="submit" class="w3-button w3-block /*w3-blue*/"  style="color:#fff !important;background-color:#e5877e">Search</button></p>
+			  <p><button id="searchBtn" type="submit" class="w3-button w3-block  white-on-pink">Search</button></p>
 			</div>
 		  </div>
 		</form>
@@ -138,9 +138,9 @@
 		<!-- Subscribe -->
 		<div class="border-prop w3-white w3-margin">
 		<div class="w3-container w3-padding w3-white border-underline">
-		  <h4 style="text-align:center">Subscribe</h4>
+		  <h4 style="text-align:center"><button id=toggleSubs class="w3-button w3-block white-on-pink" onclick="viewHideSubscribe()">SUBSCRIBE</button></h4>
 		</div>
-		<div class="w3-container w3-white">
+		<div id="subscriber" style="display:none;" class="w3-container w3-white">
 		  <p>Receive new posts straight to your inbox.</p>
 		  <form id="contactForm1" method="post">
 		      <input type="text" name="_honey" value="" style="display:none">

@@ -38,6 +38,19 @@ function viewHideReactions(id) {
     }
 }
 
+function viewHideSubscribe(){
+	if($("#subscriber").hasClass("w3-show")){
+		$("#subscriber").removeClass("w3-show");
+		$("#toggleSubs").removeClass("black-on-grey");
+		$("#toggleSubs").addClass("white-on-pink");
+	}
+	else{
+		$("#subscriber").addClass("w3-show");
+		$("#toggleSubs").addClass("black-on-grey");
+		$("#toggleSubs").removeClass("white-on-pink");
+	}
+}
+
 function loadMoreEntries(btn, id, iter)
 {
 	var disable = false;
@@ -110,6 +123,7 @@ function subscribe(formId){
 	});
 	$("#thank-you").css('display', 'block');
 	$("#subscribe").css('display', 'none');
+	viewHideSubscribe();
 	return false;
 }
 
