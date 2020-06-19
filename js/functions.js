@@ -1,3 +1,7 @@
+---
+---
+var app = "{{ site.receiver.app }}";
+var func = "{{ site.receiver.func }}";
 var year = "2020";
 var month = "04";
 var version = "1.0.0";
@@ -178,8 +182,7 @@ function reply(formId, postUrl){
 	f_email.value = '';
 	
 	$.ajax({
-		dataType: "json",
-		url: "https://formsapi.jabwn.com/key/RJgPflYOU79fwdeJbPU8",
+		url: app + func,
 		method: "POST",
 		data: dataObj
 	}).done(function(data, status, xhr){
