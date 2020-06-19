@@ -182,7 +182,6 @@ function reply(formId, postUrl){
 	f_email.value = '';
 	
 	$.ajax({
-		dataType: "json",
 		url: app + func,
 		method: "POST",
 		data: dataObj
