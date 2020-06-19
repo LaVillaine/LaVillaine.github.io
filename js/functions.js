@@ -182,6 +182,7 @@ function reply(formId, postUrl){
 	f_email.value = '';
 	
 	$.ajax({
+		contentType: "application/x-www-form-urlencoded",
 		url: app + func,
 		method: "POST",
 		data: dataObj
