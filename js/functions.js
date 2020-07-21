@@ -131,12 +131,13 @@ function subscribe(formId){
 	return false;
 }
 
-function reply(formId, postUrl){	
+function reply(formId, postTitle){	
 	var error = false;
 	
 	document.getElementById("displayReplyNameError").style.display = 'none';
 	document.getElementById("displayReplyCommentError").style.display = 'none';
 	document.getElementById("displayReplyEmailError").style.display = 'none';
+	document.getElementById("displayRecaptchaError").style.display = 'none';
 	
 	var f = $(formId);
 	if(!f[0].alias.validity.valid)
@@ -155,27 +156,28 @@ function reply(formId, postUrl){
 		error = true;
 	}
 	
-	if (!validateHiddenInputs(f[0])){
-		error = true;
-	}
-	
-	if(error == true)
+	if(error == true){
 		return;
+	}
 		
 	var f_name = document.getElementById("replyName");
 	var f_comment = document.getElementById("replyComment");
 	var f_email = document.getElementById("replyEmail");
-	var f_post = postUrl.split('/').slice(-1)[0];
 	
 	var dataObj = {};
 	dataObj["Name"] = f_name.value;
 	dataObj["Email"] = f_email.value;
-	dataObj["Post"] = f_post;
+	dataObj["Post"] = postTitle;
 	dataObj["Comment"] = f_comment.value;
-	dataObj["_subject"] = "Mohmanyang Comment: " + f_post;
-	dataObj["_replyto"] = f_email.value;
-	dataObj["_honey"] = f[0]._honey.value;
-	dataObj["_kitemt"] = f[0]._kitemt.value;
+	// Spam verification
+	if (grecaptcha) {
+		dataObj["Captcha"] = grecaptcha.getResponse();
+		if (dataObj["Captcha"].length === 0) {
+			document.getElementById("displayRecaptchaError").style.display = '';
+			return;
+		}
+		grecaptcha.reset();
+	}
 	
 	f_name.value = '';
 	f_comment.value = '';
@@ -187,9 +189,9 @@ function reply(formId, postUrl){
 		method: "POST",
 		data: dataObj
 	}).done(function(data, status, xhr){
-		resetForm(f[0]);
+		f[0].reset();
 	}).fail(function (xhr, status, error) {
-		resetForm(f[0]);
+		f[0].reset();
 	});	
 	$("#thanks").css('display', 'block');
 	$("#reply").css('display', 'none');
@@ -217,6 +219,6 @@ jQuery( document ).ready( function($){
 	}
 	var replyForm = $("#replyForm");
 	if (replyForm.length > 0) {
-		resetForm(replyForm[0]);
+		replyForm[0].reset();
 	}
 });

@@ -19,3 +19,5 @@ permalink: /:categories/:year/:month/:day/:title
 receiver:
   app: https://handleformpostapp.azurewebsites.net
   func: /api/HandleFormPost
+
+recaptcha_site_key: "6LeDTrQZAAAAAIDpwtGjWVOLVQXDTGqro1OqtYi0"
