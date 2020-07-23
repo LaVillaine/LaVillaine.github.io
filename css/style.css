@@ -61,3 +61,10 @@ body {
 	color: #000 !important;
 	background-color: #ccc !important
 }
+
+@media only screen and (max-width: 600px){
+    .g-recaptcha {
+        transform:scale(0.8);
+        transform-origin:0 0
+    }
+}
