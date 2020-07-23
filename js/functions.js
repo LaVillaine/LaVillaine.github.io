@@ -2,26 +2,6 @@
 ---
 var app = "{{ site.receiver.app }}";
 var func = "{{ site.receiver.func }}";
-var year = "2020";
-var month = "04";
-var version = "1.0.0";
-var locale = "en_GB";
-
-var resetForm = function (form) {
-	form.reset();
-	form.year.value = year;
-	form.month.value = month;
-	form.version.value = version;
-	form.locale.value = locale;
-};
-
-var validateHiddenInputs = function (form) {
-	if (form.year.value != year) { return false; }
-	if (form.month.value != month) { return false; }
-	if (form.version.value != version) { return false; }
-	if (form.locale.value != locale) { return false; }
-	return true;
-};
 
 // Toggle between hiding and showing blog replies/comments
 
@@ -204,13 +184,7 @@ function reply(formId, postTitle){
 
 jQuery( document ).ready( function($){
 	/**YEAR**/
-	var d = new Date();
-	$("#theYear").text(d.getFullYear());
-	/**STAMP**/
-	year = d.getHours();
-	month = d.getMinutes();
-	version = d.getSeconds();
-	locale = d.getMilliseconds();
+	$("#theYear").text(new Date().getFullYear());
 	
 	// reset forms on page refresh
 	var contactForm1 = $("#contactForm1");
