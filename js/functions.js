@@ -89,19 +89,16 @@ function loadMoreEntries(btn, id, iter)
 
 function subscribe(formId){
 	var formIndex = formId.slice(-1);
-	var displayEmailError = "displayEmailError" + formIndex;
 	var email = "email" + formIndex;
-	
+
+	var displayEmailError = "displayEmailError" + formIndex;
+	var displayRecaptchaError = "displayRecaptchaError" + formIndex;	
 	document.getElementById(displayEmailError).style.display = 'none';
+	document.getElementById(displayRecaptchaError).style.display = 'none';
 	
 	var f = $(formId);
 	if(!f[0].email.validity.valid)
 	{
-		document.getElementById(displayEmailError).style.display = '';
-		return;
-	}
-	
-	if (!validateHiddenInputs(f[0])) {
 		document.getElementById(displayEmailError).style.display = '';
 		return;
 	}
@@ -110,20 +107,27 @@ function subscribe(formId){
 	
 	var dataObj = {};
 	dataObj["Email"] = f_email.value;
-	dataObj["FormId"] = formId;
-	dataObj["_subject"] = "New Subscription!";
-	dataObj["_honey"] = f[0]._honey.value;
-	dataObj["_kitemt"] = f[0]._kitemt.value;
+	// Spam verification
+	if (grecaptcha) {
+		dataObj["Captcha"] = grecaptcha.getResponse();
+		if (dataObj["Captcha"].length === 0) {
+			document.getElementById(displayRecaptchaError).style.display = '';
+			return;
+		}
+		grecaptcha.reset();
+	}
+
+	f_email.value = '';
 		
 	$.ajax({
-		dataType: "json",
-		url: "https://formsapi.jabwn.com/key/RJgPflYOU79fwdeJbPU8",
+		contentType: "application/x-www-form-urlencoded",
+		url: app + func,
 		method: "POST",
 		data: dataObj
 	}).done(function(data, status, xhr){
-		resetForm(f[0]);
+		f[0].reset();
 	}).fail(function (xhr, status, error) {
-		resetForm(f[0]);
+		f[0].reset();
 	});
 	$("#thank-you").css('display', 'block');
 	$("#subscribe").css('display', 'none');
@@ -211,11 +215,11 @@ jQuery( document ).ready( function($){
 	// reset forms on page refresh
 	var contactForm1 = $("#contactForm1");
 	if (contactForm1.length > 0) {
-		resetForm(contactForm1[0]);
+		contactForm1[0].reset();
 	}
 	var contactForm2 = $("#contactForm2");
 	if (contactForm2.length > 0) {
-		resetForm(contactForm2[0]);
+		contactForm2[0].reset();
 	}
 	var replyForm = $("#replyForm");
 	if (replyForm.length > 0) {
