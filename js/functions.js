@@ -69,6 +69,7 @@ function loadMoreEntries(btn, id, iter)
 
 function subscribe(formId){
 	var formIndex = formId.slice(-1);
+	var grecaptchaId = parseInt(formIndex) - 1;
 	var email = "email" + formIndex;
 
 	var displayEmailError = "displayEmailError" + formIndex;
@@ -89,12 +90,12 @@ function subscribe(formId){
 	dataObj["Email"] = f_email.value;
 	// Spam verification
 	if (grecaptcha) {
-		dataObj["Captcha"] = grecaptcha.getResponse(parseInt(formIndex) - 1);
+		dataObj["Captcha"] = grecaptcha.getResponse(grecaptchaId);
 		if (dataObj["Captcha"].length === 0) {
 			document.getElementById(displayRecaptchaError).style.display = '';
 			return;
 		}
-		grecaptcha.reset(parseInt(formIndex) - 1);
+		grecaptcha.reset(grecaptchaId);
 	}
 
 	f_email.value = '';
