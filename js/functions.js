@@ -155,12 +155,12 @@ function reply(formId, postTitle){
 	dataObj["Comment"] = f_comment.value;
 	// Spam verification
 	if (grecaptcha) {
-		dataObj["Captcha"] = grecaptcha.getResponse();
+		dataObj["Captcha"] = grecaptcha.getResponse(2);
 		if (dataObj["Captcha"].length === 0) {
 			document.getElementById("displayRecaptchaError").style.display = '';
 			return;
 		}
-		grecaptcha.reset();
+		grecaptcha.reset(2);
 	}
 	
 	f_name.value = '';
