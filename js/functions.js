@@ -89,12 +89,12 @@ function subscribe(formId){
 	dataObj["Email"] = f_email.value;
 	// Spam verification
 	if (grecaptcha) {
-		dataObj["Captcha"] = grecaptcha.getResponse();
+		dataObj["Captcha"] = grecaptcha.getResponse(parseInt(formIndex) - 1);
 		if (dataObj["Captcha"].length === 0) {
 			document.getElementById(displayRecaptchaError).style.display = '';
 			return;
 		}
-		grecaptcha.reset();
+		grecaptcha.reset(parseInt(formIndex) - 1);
 	}
 
 	f_email.value = '';
